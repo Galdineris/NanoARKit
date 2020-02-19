@@ -27,6 +27,8 @@ final class MainCoordinator: Coordinator {
     }
 
     public func settings() {
-        return
+        let viewModel = GameSettingsViewModel(coordinator: self)
+        let vc = GameSettingsViewController(viewModel: viewModel)
+        navigationController.pushViewController(vc, animated: true)
     }
 }
