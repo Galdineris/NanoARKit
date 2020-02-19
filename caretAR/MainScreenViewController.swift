@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import ARKit
 
 class MainScreenViewController: UIViewController {
 
     private lazy var titleLabel: UILabel = {
         let view = UILabel(frame: .zero)
+        view.font = UIFont.preferredFont(forTextStyle: .title1)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -39,6 +41,7 @@ class MainScreenViewController: UIViewController {
     required init(viewModel: MainScreenViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        viewModel.delegate = self
     }
 
     required init?(coder: NSCoder) {
@@ -49,10 +52,19 @@ class MainScreenViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .systemTeal
         titleLabel.text = "caretAR"
+        setupButton()
+        self.layoutInterface()
+    }
+
+    func setupButton() {
         playButton.setTitle("Jogar", for: .normal)
         settingsButton.setTitle("Configurações", for: .normal)
-        self.layoutInterface()
-        // Do any additional setup after loading the view.
+        playButton.addTarget(self,
+                             action: #selector(play),
+                             for: .touchUpInside)
+        settingsButton.addTarget(self,
+                                 action: #selector(settings),
+                                 for: .touchUpInside)
     }
 
     private func layoutInterface() {
@@ -72,5 +84,20 @@ class MainScreenViewController: UIViewController {
         multiplier: 0.75).isActive = true
         menuStackView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         menuStackView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
+    }
+
+    @objc public func play() {
+        viewModel.playGame(hasFaceTracking: ARFaceTrackingConfiguration.isSupported)
+    }
+
+    @objc public func settings() {
+        viewModel.settings()
+    }
+
+}
+
+extension MainScreenViewController: MainScreenViewModelDelegate {
+    func notCompatible() {
+        return
     }
 }

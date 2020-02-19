@@ -8,8 +8,28 @@
 
 import Foundation
 
-class MainScreenViewModel {
-    init( ) {
+protocol MainScreenViewModelDelegate: class {
+    func notCompatible()
+}
 
+class MainScreenViewModel {
+    private let coordinator: MainCoordinator
+    weak var delegate: MainScreenViewModelDelegate?
+
+
+    init(Coordinator viewCoordinator: MainCoordinator) {
+        self.coordinator = viewCoordinator
+    }
+
+    public func playGame(hasFaceTracking faceTracking: Bool) {
+        if faceTracking {
+            coordinator.playGame()
+        } else {
+            delegate?.notCompatible()
+        }
+    }
+
+    public func settings() {
+        coordinator.settings()
     }
 }
