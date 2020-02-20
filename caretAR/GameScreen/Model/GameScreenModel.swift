@@ -9,7 +9,9 @@
 import Foundation
 
 struct GameScreenModel {
-    init() {
-        return
+    var expressions: [String: (Bool, String)]
+    init(expressions: [String: (Bool, String)] = defaultExpressions) {
+        self.expressions = expressions
     }
+
 }
