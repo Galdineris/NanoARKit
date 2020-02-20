@@ -25,7 +25,7 @@ class GameSettingsViewModel {
 
     public func name(index: Int) -> String {
         let value = model.expressions[index]
-        return value.name
+        return value.details
     }
 
     public func state(index: Int) -> Bool {

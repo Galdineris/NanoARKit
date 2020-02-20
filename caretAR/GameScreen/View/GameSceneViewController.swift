@@ -35,9 +35,11 @@ class GameScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSceneView()
         sceneARConfiguration.maximumNumberOfTrackedFaces = ARFaceTrackingConfiguration.supportedNumberOfTrackedFaces
         sceneARConfiguration.isLightEstimationEnabled = true
         sceneView.session.run(sceneARConfiguration, options: [.removeExistingAnchors, .resetTracking])
+        sceneView.delegate = self
         UIApplication.shared.isIdleTimerDisabled = true
     }
 
@@ -53,10 +55,19 @@ class GameScreenViewController: UIViewController {
         let font = UIFont.preferredFont(forTextStyle: .title1)
         let material = SCNMaterial()
         text.font = font
-        material.diffuse.contents = UIColor.black
+        material.diffuse.contents = UIColor.yellow
         material.isDoubleSided = true
         text.materials = [material]
         return text
+    }
+
+    private func setupSceneView() {
+        view.addSubview(sceneView)
+
+        sceneView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        sceneView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+        sceneView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        sceneView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
 }
 
