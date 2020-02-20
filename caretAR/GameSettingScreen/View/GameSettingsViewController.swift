@@ -19,6 +19,15 @@ final class GameSettingsViewController: UIViewController {
 
     private let viewModel: GameSettingsViewModel
 
+    init(viewModel: GameSettingsViewModel) {
+           self.viewModel = viewModel
+           super.init(nibName: nil, bundle: nil)
+       }
+
+       required init?(coder: NSCoder) {
+           fatalError("init(coder:) has not been implemented")
+       }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,7 +41,7 @@ final class GameSettingsViewController: UIViewController {
     }
 
     @objc private func saveSettings() {
-        return
+        viewModel.TESTFUNCTION()
     }
 
     private func layoutInterface() {
@@ -41,15 +50,6 @@ final class GameSettingsViewController: UIViewController {
         tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-    }
-
-    init(viewModel: GameSettingsViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
 }
@@ -67,6 +67,15 @@ extension GameSettingsViewController: UITableViewDataSource {
         let cell = GameSettingsCell()
         cell.expressionLabel.text = viewModel.name(index: indexPath.row)
         cell.expressionSwitch.isOn = viewModel.state(index: indexPath.row)
+        cell.delegate = self
         return cell
+    }
+}
+
+extension GameSettingsViewController: GameSettingsCellDelegate {
+    func pass(state: Bool, cell: UITableViewCell) {
+        if let index = tableView.indexPath(for: cell)?.row {
+            viewModel.stateChanged(atIndex: index, withState: state)
+        }
     }
 }

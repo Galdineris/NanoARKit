@@ -19,9 +19,11 @@ class GameScreenViewController: UIViewController {
     }()
 
     private let viewModel: GameScreenViewModel
+    private let gameSettings: GameSettingsModel
 
-    init(viewModel: GameScreenViewModel) {
+    init(viewModel: GameScreenViewModel, gameSettings: GameSettingsModel) {
         self.viewModel = viewModel
+        self.gameSettings = gameSettings
         super.init(nibName: nil, bundle: nil)
     }
 

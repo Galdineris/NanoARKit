@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A446E7A823FEEE710016E205 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A446E7A723FEEE710016E205 /* MainScreenViewController.swift */; };
 		F25AB3BF23FD9F2400A8D1FE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AB3BE23FD9F2400A8D1FE /* Coordinator.swift */; };
 		F25AB3C123FD9F7A00A8D1FE /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AB3C023FD9F7A00A8D1FE /* MainCoordinator.swift */; };
 		F25AB3C723FDA95E00A8D1FE /* GameSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AB3C623FDA95E00A8D1FE /* GameSettingsViewController.swift */; };
@@ -18,13 +19,13 @@
 		F25AB3D723FDD00600A8D1FE /* GameScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AB3D623FDD00600A8D1FE /* GameScreenModel.swift */; };
 		F2D43EF023FC6D68003EC265 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D43EEF23FC6D68003EC265 /* AppDelegate.swift */; };
 		F2D43EF223FC6D68003EC265 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D43EF123FC6D68003EC265 /* SceneDelegate.swift */; };
-		F2D43EF423FC6D68003EC265 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D43EF323FC6D68003EC265 /* MainScreenViewController.swift */; };
 		F2D43EF923FC6D6A003EC265 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D43EF823FC6D6A003EC265 /* Assets.xcassets */; };
 		F2D43EFC23FC6D6A003EC265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2D43EFA23FC6D6A003EC265 /* LaunchScreen.storyboard */; };
 		F2D43F0823FC7813003EC265 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D43F0723FC7813003EC265 /* MainScreenViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A446E7A723FEEE710016E205 /* MainScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainScreenViewController.swift; path = caretAR/MainScreenViewController.swift; sourceTree = SOURCE_ROOT; };
 		F25AB3BE23FD9F2400A8D1FE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		F25AB3C023FD9F7A00A8D1FE /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		F25AB3C623FDA95E00A8D1FE /* GameSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsViewController.swift; sourceTree = "<group>"; };
@@ -37,7 +38,6 @@
 		F2D43EEC23FC6D68003EC265 /* caretAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = caretAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2D43EEF23FC6D68003EC265 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2D43EF123FC6D68003EC265 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F2D43EF323FC6D68003EC265 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainScreenViewController.swift; path = ../../MainScreenViewController.swift; sourceTree = "<group>"; };
 		F2D43EF823FC6D6A003EC265 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2D43EFB23FC6D6A003EC265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F2D43EFD23FC6D6A003EC265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 		F2D43F0423FC7789003EC265 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F2D43EF323FC6D68003EC265 /* MainScreenViewController.swift */,
+				A446E7A723FEEE710016E205 /* MainScreenViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -282,7 +282,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2D43EF423FC6D68003EC265 /* MainScreenViewController.swift in Sources */,
 				F25AB3C123FD9F7A00A8D1FE /* MainCoordinator.swift in Sources */,
 				F2D43F0823FC7813003EC265 /* MainScreenViewModel.swift in Sources */,
 				F25AB3D323FDCFD900A8D1FE /* GameSceneViewController.swift in Sources */,
@@ -291,6 +290,7 @@
 				F25AB3D523FDCFF800A8D1FE /* GameScreenViewModel.swift in Sources */,
 				F2D43EF023FC6D68003EC265 /* AppDelegate.swift in Sources */,
 				F25AB3C923FDA97E00A8D1FE /* GameSettingsModel.swift in Sources */,
+				A446E7A823FEEE710016E205 /* MainScreenViewController.swift in Sources */,
 				F25AB3CB23FDA99600A8D1FE /* GameSettingsViewModel.swift in Sources */,
 				F25AB3CD23FDB45500A8D1FE /* GameSettingsCell.swift in Sources */,
 				F2D43EF223FC6D68003EC265 /* SceneDelegate.swift in Sources */,
@@ -431,7 +431,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RAZG7U3SR6;
+				DEVELOPMENT_TEAM = L76X5KFZD9;
 				INFOPLIST_FILE = caretAR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -449,7 +449,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RAZG7U3SR6;
+				DEVELOPMENT_TEAM = L76X5KFZD9;
 				INFOPLIST_FILE = caretAR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

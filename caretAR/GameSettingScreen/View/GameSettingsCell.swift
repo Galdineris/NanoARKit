@@ -9,7 +9,11 @@
 import Foundation
 import UIKit
 
-class GameSettingsCell: UITableViewCell {
+protocol GameSettingsCellDelegate: class {
+    func pass(state: Bool, cell: UITableViewCell)
+}
+
+final class GameSettingsCell: UITableViewCell {
 
     init() {
         super.init(style: .default, reuseIdentifier: nil)
@@ -32,7 +36,11 @@ class GameSettingsCell: UITableViewCell {
         return expressionSwitch
     }()
 
+    public weak var delegate: GameSettingsCellDelegate?
+
     private func setUpLayout() {
+        expressionSwitch.addTarget(self, action: #selector(stateChanged), for: .valueChanged)
+
         self.addSubview(expressionLabel)
         self.addSubview(expressionSwitch)
 
@@ -48,5 +56,9 @@ class GameSettingsCell: UITableViewCell {
                                                    constant: -5).isActive = true
         expressionSwitch.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor,
                                                 multiplier: 0.2).isActive = true
+    }
+
+    @objc private func stateChanged() {
+        delegate?.pass(state: expressionSwitch.isOn, cell: self)
     }
 }
