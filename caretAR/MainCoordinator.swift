@@ -22,9 +22,15 @@ final class MainCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
 
-    public func playGame() {
+    public func gameSettings() {
         let viewModel = GameSettingsViewModel(coordinator: self)
         let vc = GameSettingsViewController(viewModel: viewModel)
+        navigationController.pushViewController(vc, animated: true)
+    }
+
+    public func playGame(model: GameSettingsModel) {
+        let viewModel = GameScreenViewModel(coordinator: self, model: model)
+        let vc = GameScreenViewController(viewModel: viewModel)
         navigationController.pushViewController(vc, animated: true)
     }
 }

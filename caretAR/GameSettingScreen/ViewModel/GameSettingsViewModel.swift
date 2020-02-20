@@ -34,15 +34,10 @@ class GameSettingsViewModel {
     }
 
     public func stateChanged(atIndex: Int, withState: Bool) {
-        let key = Array(model.expressions)[atIndex].key
-        let value = model.expressions[key]
-
-        if let string = value?.1 {
-            model.expressions.updateValue((withState, string), forKey: key)
-        }
+        model.expressions[atIndex].enabled = withState
     }
 
-    public func TESTFUNCTION() {
-        print(model.expressions)
+    public func done() {
+        coordinator.playGame(model: model)
     }
 }

@@ -42,7 +42,7 @@ final class GameSettingsViewController: UIViewController {
     }
 
     @objc private func saveSettings() {
-        viewModel.TESTFUNCTION()
+        viewModel.done()
     }
 
     private func layoutInterface() {
