@@ -38,12 +38,15 @@ class GameScreenViewController: UIViewController {
         sceneARConfiguration.maximumNumberOfTrackedFaces = ARFaceTrackingConfiguration.supportedNumberOfTrackedFaces
         sceneARConfiguration.isLightEstimationEnabled = true
         sceneView.session.run(sceneARConfiguration, options: [.removeExistingAnchors, .resetTracking])
+        UIApplication.shared.isIdleTimerDisabled = true
+        
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         sceneView.session.pause()
         players = [:]
+        UIApplication.shared.isIdleTimerDisabled = false
     }
 //    TODO: ?create custom SCNText for player name label?
     private func createPlayerNameLabel(_ name: String) -> SCNText {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ARKit
 
 protocol GameScreenViewModelDelegate: class {
 //    var players: [UUID: Any] { get set }
@@ -16,41 +17,34 @@ class GameScreenViewModel {
     private let coordinator: MainCoordinator
     private var model: GameScreenModel
 
-    init(coordinator viewModelCoordinator: MainCoordinator) {
+    init(coordinator viewModelCoordinator: MainCoordinator, model: GameScreenModel) {
         self.coordinator = viewModelCoordinator
-        self.model = GameScreenModel()
-
-        self.expressionsToUse = model.expressions
-        self.currentExpression = [:]
-        self.playersPoints = [:]
-        self.numberOfRoundsElapsed = 0
-        self.currentRound = 0
-        self.gameActive = false
+        self.model = model
     }
 
 // MARK: GAME LOGIC
-    private var gameActive: Bool {
-            didSet {
-    //            trigger game changes when paused
-            }
-        }
-//    TODO: ?Make Custom Expression Class?
-    private var expressionsToUse: [String: (Bool, String)]
-    private var currentExpression: [String: (Bool, String)]
-    private var playersPoints: [UUID: Int]
-    private var numberOfRoundsElapsed: Int
-    private var currentRound: Int
-
+    
     public func startNewGame() {
-        self.playersPoints = [:]
-        self.numberOfRoundsElapsed = 0
-        self.currentRound = 0
-        self.gameActive = true
+        model.isGameActive = true
     }
 
-    public func processNewARFrame() {
-        guard self.gameActive else {
+    public func processNewARFrame(personFace: ARFaceAnchor) {
+        guard model.isGameActive else {
             return
+        }
+        for blendShape in model.currentExpression.blendShapes {
+            if let value = personFace.blendShapes[blendShape] {
+                if !(value.floatValue >= model.currentExpression.threshold) {
+                    return
+                }
+            }
+        }
+        guard let score = model.playersPoints[personFace.identifier] else {
+            return
+        }
+        model.playersPoints.updateValue(score + 1, forKey: personFace.identifier)
+        if let randomElement = model.expressions.randomElement() {
+            model.currentExpression = randomElement
         }
     }
 }

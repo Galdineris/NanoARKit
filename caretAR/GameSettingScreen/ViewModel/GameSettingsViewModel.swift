@@ -24,12 +24,12 @@ class GameSettingsViewModel {
     }
 
     public func name(index: Int) -> String {
-        let value = Array(model.expressions)[index].value
-        return value.1
+        let value = model.expressions[index]
+        return value.name
     }
 
     public func state(index: Int) -> Bool {
-        let value = Array(model.expressions)[index].value
-        return value.0
+        let value = model.expressions[index]
+        return value.enabled
     }
 }
