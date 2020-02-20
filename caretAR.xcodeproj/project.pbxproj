@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CB129D9F23FEEECD009D880B /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB129D9E23FEEECD009D880B /* MainScreenViewController.swift */; };
-		CB129DA123FEF0B8009D880B /* Expressions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB129DA023FEF0B8009D880B /* Expressions.swift */; };
+		A446E7A823FEEE710016E205 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A446E7A723FEEE710016E205 /* MainScreenViewController.swift */; };
 		F25AB3BF23FD9F2400A8D1FE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AB3BE23FD9F2400A8D1FE /* Coordinator.swift */; };
 		F25AB3C123FD9F7A00A8D1FE /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AB3C023FD9F7A00A8D1FE /* MainCoordinator.swift */; };
 		F25AB3C723FDA95E00A8D1FE /* GameSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AB3C623FDA95E00A8D1FE /* GameSettingsViewController.swift */; };
@@ -26,8 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CB129D9E23FEEECD009D880B /* MainScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainScreenViewController.swift; path = caretAR/MainScreen/MainScreenViewController.swift; sourceTree = SOURCE_ROOT; };
-		CB129DA023FEF0B8009D880B /* Expressions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expressions.swift; sourceTree = "<group>"; };
+		A446E7A723FEEE710016E205 /* MainScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainScreenViewController.swift; path = caretAR/MainScreenViewController.swift; sourceTree = SOURCE_ROOT; };
 		F25AB3BE23FD9F2400A8D1FE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		F25AB3C023FD9F7A00A8D1FE /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		F25AB3C623FDA95E00A8D1FE /* GameSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsViewController.swift; sourceTree = "<group>"; };
@@ -173,7 +171,7 @@
 		F2D43F0423FC7789003EC265 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CB129D9E23FEEECD009D880B /* MainScreenViewController.swift */,
+				A446E7A723FEEE710016E205 /* MainScreenViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -293,7 +291,7 @@
 				F25AB3D523FDCFF800A8D1FE /* GameScreenViewModel.swift in Sources */,
 				F2D43EF023FC6D68003EC265 /* AppDelegate.swift in Sources */,
 				F25AB3C923FDA97E00A8D1FE /* GameSettingsModel.swift in Sources */,
-				CB129D9F23FEEECD009D880B /* MainScreenViewController.swift in Sources */,
+				A446E7A823FEEE710016E205 /* MainScreenViewController.swift in Sources */,
 				F25AB3CB23FDA99600A8D1FE /* GameSettingsViewModel.swift in Sources */,
 				F25AB3CD23FDB45500A8D1FE /* GameSettingsCell.swift in Sources */,
 				F2D43EF223FC6D68003EC265 /* SceneDelegate.swift in Sources */,
@@ -435,7 +433,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RAZG7U3SR6;
+				DEVELOPMENT_TEAM = L76X5KFZD9;
 				INFOPLIST_FILE = caretAR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -453,7 +451,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RAZG7U3SR6;
+				DEVELOPMENT_TEAM = L76X5KFZD9;
 				INFOPLIST_FILE = caretAR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

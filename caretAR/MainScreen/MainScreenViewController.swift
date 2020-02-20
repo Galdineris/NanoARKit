@@ -24,6 +24,12 @@ class MainScreenViewController: UIViewController {
         return view
     }()
 
+    private lazy var settingsButton: UIButton = {
+        let view = UIButton(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
     private lazy var menuStackView: UIStackView = {
         let view = UIStackView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -52,15 +58,20 @@ class MainScreenViewController: UIViewController {
 
     func setupButton() {
         playButton.setTitle("Jogar", for: .normal)
+        settingsButton.setTitle("Configurações", for: .normal)
         playButton.addTarget(self,
                              action: #selector(play),
                              for: .touchUpInside)
+        settingsButton.addTarget(self,
+                                 action: #selector(settings),
+                                 for: .touchUpInside)
     }
 
     private func layoutInterface() {
         for view in [
             titleLabel,
             playButton,
+            settingsButton
             ] {
                 menuStackView.addArrangedSubview(view)
         }
@@ -77,6 +88,10 @@ class MainScreenViewController: UIViewController {
 
     @objc public func play() {
         viewModel.playGame(hasFaceTracking: ARFaceTrackingConfiguration.isSupported)
+    }
+
+    @objc public func settings() {
+        viewModel.settings()
     }
 
 }

@@ -32,4 +32,17 @@ class GameSettingsViewModel {
         let value = model.expressions[index]
         return value.enabled
     }
+
+    public func stateChanged(atIndex: Int, withState: Bool) {
+        let key = Array(model.expressions)[atIndex].key
+        let value = model.expressions[key]
+
+        if let string = value?.1 {
+            model.expressions.updateValue((withState, string), forKey: key)
+        }
+    }
+
+    public func TESTFUNCTION() {
+        print(model.expressions)
+    }
 }
