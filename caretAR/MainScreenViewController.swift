@@ -13,19 +13,12 @@ class MainScreenViewController: UIViewController {
 
     private lazy var titleLabel: UILabel = {
         let view = UILabel(frame: .zero)
-        view.font = UIFont.preferredFont(forTextStyle: .title1)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
     private lazy var playButton: UIButton = {
         let view = UIButton(frame: .zero)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-
-    private lazy var menuStackView: UIStackView = {
-        let view = UIStackView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -44,35 +37,45 @@ class MainScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .systemTeal
-        titleLabel.text = "caretAR"
+        self.view.backgroundColor = .systemRed
+        setupTitleLabel()
         setupButton()
         self.layoutInterface()
     }
 
-    func setupButton() {
-        playButton.setTitle("Jogar", for: .normal)
+    private func setupButton() {
+        playButton.setTitle("JOGAR", for: .normal)
+        playButton.titleLabel?.font = UIFont(name: "Futura", size: 32)
         playButton.addTarget(self,
                              action: #selector(play),
                              for: .touchUpInside)
+        playButton.backgroundColor = .systemGray6
+        playButton.setTitleColor(.systemRed, for: .normal)
+        playButton.layer.cornerRadius = 25
+        playButton.clipsToBounds = true
+    }
+
+    private func setupTitleLabel() {
+        titleLabel.text = "CaretAR"
+        titleLabel.font = UIFont(name: "Futura", size: 32)
+        titleLabel.textColor = .systemGray6
     }
 
     private func layoutInterface() {
-        for view in [
-            titleLabel,
-            playButton,
-            ] {
-                menuStackView.addArrangedSubview(view)
-        }
-        menuStackView.alignment = .center
-        menuStackView.distribution = .fillEqually
-        menuStackView.axis = .vertical
-        self.view.addSubview(menuStackView)
-        menuStackView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor).isActive = true
-        menuStackView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor,
-        multiplier: 0.75).isActive = true
-        menuStackView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        menuStackView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
+        view.addSubview(titleLabel)
+        view.addSubview(playButton)
+
+        titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,
+                                            constant: 20).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,
+                                             constant: -20).isActive = true
+        titleLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+
+        playButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        playButton.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
+        playButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        playButton.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.5).isActive = true
     }
 
     @objc public func play() {
