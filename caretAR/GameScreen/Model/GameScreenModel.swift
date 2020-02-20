@@ -7,3 +7,20 @@
 //
 
 import Foundation
+
+struct GameScreenModel {
+    var expressions: [Expression]
+    var currentExpression: Expression
+    var playersPoints: [UUID: Int]
+    var numberOfRounds: Int
+    var currentRound: Int
+    var isGameActive: Bool
+    init(expressions: [Expression] = defaultExpressions) {
+        self.expressions = expressions
+        self.currentExpression = Expression()
+        self.playersPoints = [:]
+        self.numberOfRounds = 0
+        self.currentRound = 0
+        self.isGameActive = false
+    }
+}

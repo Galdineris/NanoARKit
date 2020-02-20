@@ -93,9 +93,9 @@
 		F25AB3CE23FDCFA000A8D1FE /* GameScreen */ = {
 			isa = PBXGroup;
 			children = (
-				F25AB3D123FDCFC100A8D1FE /* Model */,
-				F25AB3D023FDCFBB00A8D1FE /* ViewModel */,
 				F25AB3CF23FDCFAA00A8D1FE /* View */,
+				F25AB3D023FDCFBB00A8D1FE /* ViewModel */,
+				F25AB3D123FDCFC100A8D1FE /* Model */,
 			);
 			path = GameScreen;
 			sourceTree = "<group>";
@@ -150,6 +150,7 @@
 				F25AB3BE23FD9F2400A8D1FE /* Coordinator.swift */,
 				F25AB3C023FD9F7A00A8D1FE /* MainCoordinator.swift */,
 				F2D43F0323FC7779003EC265 /* MainScreen */,
+				CB129DA023FEF0B8009D880B /* Expressions.swift */,
 				F2D43EF823FC6D6A003EC265 /* Assets.xcassets */,
 				F2D43EFA23FC6D6A003EC265 /* LaunchScreen.storyboard */,
 				F2D43EFD23FC6D6A003EC265 /* Info.plist */,
@@ -295,6 +296,7 @@
 				F25AB3CD23FDB45500A8D1FE /* GameSettingsCell.swift in Sources */,
 				F2D43EF223FC6D68003EC265 /* SceneDelegate.swift in Sources */,
 				F25AB3D723FDD00600A8D1FE /* GameScreenModel.swift in Sources */,
+				CB129DA123FEF0B8009D880B /* Expressions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
