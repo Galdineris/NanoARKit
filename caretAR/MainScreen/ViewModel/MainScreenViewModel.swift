@@ -16,7 +16,6 @@ class MainScreenViewModel {
     private let coordinator: MainCoordinator
     weak var delegate: MainScreenViewModelDelegate?
 
-
     init(Coordinator viewCoordinator: MainCoordinator) {
         self.coordinator = viewCoordinator
     }
@@ -27,9 +26,5 @@ class MainScreenViewModel {
         } else {
             delegate?.notCompatible()
         }
-    }
-
-    public func settings() {
-        coordinator.settings()
     }
 }
