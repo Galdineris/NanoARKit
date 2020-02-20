@@ -23,11 +23,9 @@ class GameScreenViewController: UIViewController {
     }()
 
     private let viewModel: GameScreenViewModel
-    private let gameSettings: GameSettingsModel
 
-    init(viewModel: GameScreenViewModel, gameSettings: GameSettingsModel) {
+    init(viewModel: GameScreenViewModel) {
         self.viewModel = viewModel
-        self.gameSettings = gameSettings
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -41,7 +39,6 @@ class GameScreenViewController: UIViewController {
         sceneARConfiguration.isLightEstimationEnabled = true
         sceneView.session.run(sceneARConfiguration, options: [.removeExistingAnchors, .resetTracking])
         UIApplication.shared.isIdleTimerDisabled = true
-        
     }
 
     override func viewWillDisappear(_ animated: Bool) {

@@ -17,6 +17,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         let navVC = UINavigationController()
+
+        navVC.navigationBar.tintColor = .black
+        navVC.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        navVC.navigationBar.isTranslucent = true
+        navVC.view.backgroundColor = .clear
+        navVC.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navVC.navigationBar.shadowImage = UIImage()
+        
         coordinator = MainCoordinator(navigationController: navVC)
         coordinator?.start()
         window?.rootViewController = navVC

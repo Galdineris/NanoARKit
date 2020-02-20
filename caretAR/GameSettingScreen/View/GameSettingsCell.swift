@@ -39,7 +39,10 @@ final class GameSettingsCell: UITableViewCell {
     public weak var delegate: GameSettingsCellDelegate?
 
     private func setUpLayout() {
+        backgroundColor = .systemRed
         expressionSwitch.addTarget(self, action: #selector(stateChanged), for: .valueChanged)
+        expressionSwitch.onTintColor = .systemOrange
+        expressionLabel.font = UIFont(name: "Futura", size: 24)
 
         self.addSubview(expressionLabel)
         self.addSubview(expressionSwitch)

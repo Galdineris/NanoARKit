@@ -22,7 +22,7 @@ class MainScreenViewModel {
 
     public func playGame(hasFaceTracking faceTracking: Bool) {
         if faceTracking {
-            coordinator.playGame()
+            coordinator.gameSettings()
         } else {
             delegate?.notCompatible()
         }

@@ -17,9 +17,9 @@ class GameScreenViewModel {
     private let coordinator: MainCoordinator
     private var model: GameScreenModel
 
-    init(coordinator viewModelCoordinator: MainCoordinator, model: GameScreenModel) {
+    init(coordinator viewModelCoordinator: MainCoordinator, model: GameSettingsModel) {
         self.coordinator = viewModelCoordinator
-        self.model = model
+        self.model = GameScreenModel(gameSettings: model)
     }
 
 // MARK: GAME LOGIC

@@ -30,10 +30,11 @@ final class GameSettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .systemRed
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
                                                                                   target: self,
                                                                                   action: #selector(saveSettings))
+        tableView.backgroundColor = .systemRed
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
@@ -41,15 +42,16 @@ final class GameSettingsViewController: UIViewController {
     }
 
     @objc private func saveSettings() {
-        viewModel.TESTFUNCTION()
+        viewModel.done()
     }
 
     private func layoutInterface() {
+        tableView.rowHeight = 40
         self.view.addSubview(tableView)
         tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 5).isActive = true
     }
 
 }

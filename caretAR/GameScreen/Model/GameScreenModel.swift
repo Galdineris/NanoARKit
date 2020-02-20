@@ -15,8 +15,8 @@ struct GameScreenModel {
     var numberOfRounds: Int
     var currentRound: Int
     var isGameActive: Bool
-    init(expressions: [Expression] = defaultExpressions) {
-        self.expressions = expressions
+    init(gameSettings: GameSettingsModel) {
+        self.expressions = gameSettings.expressions
         self.currentExpression = Expression()
         self.playersPoints = [:]
         self.numberOfRounds = 0

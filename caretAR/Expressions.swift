@@ -15,7 +15,6 @@ struct Expression {
     var enabled: Bool
     var details: String
     var blendShapes: [ARFaceAnchor.BlendShapeLocation]
-    
     init(_ name: String, threshold: Float, enabled: Bool, details: String, blendShapes: [ARFaceAnchor.BlendShapeLocation]) {
         self.name = name
         self.threshold = threshold

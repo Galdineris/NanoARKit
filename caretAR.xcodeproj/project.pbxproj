@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A446E7A823FEEE710016E205 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A446E7A723FEEE710016E205 /* MainScreenViewController.swift */; };
+		A446E7AA23FF12A20016E205 /* Expressions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A446E7A923FF12A20016E205 /* Expressions.swift */; };
 		F25AB3BF23FD9F2400A8D1FE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AB3BE23FD9F2400A8D1FE /* Coordinator.swift */; };
 		F25AB3C123FD9F7A00A8D1FE /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AB3C023FD9F7A00A8D1FE /* MainCoordinator.swift */; };
 		F25AB3C723FDA95E00A8D1FE /* GameSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AB3C623FDA95E00A8D1FE /* GameSettingsViewController.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		A446E7A723FEEE710016E205 /* MainScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainScreenViewController.swift; path = caretAR/MainScreenViewController.swift; sourceTree = SOURCE_ROOT; };
+		A446E7A923FF12A20016E205 /* Expressions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expressions.swift; sourceTree = "<group>"; };
 		F25AB3BE23FD9F2400A8D1FE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		F25AB3C023FD9F7A00A8D1FE /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		F25AB3C623FDA95E00A8D1FE /* GameSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 		F2D43EEE23FC6D68003EC265 /* caretAR */ = {
 			isa = PBXGroup;
 			children = (
+				A446E7A923FF12A20016E205 /* Expressions.swift */,
 				F25AB3CE23FDCFA000A8D1FE /* GameScreen */,
 				F25AB3C223FDA90700A8D1FE /* GameSettingScreen */,
 				F2D43EEF23FC6D68003EC265 /* AppDelegate.swift */,
@@ -150,7 +153,6 @@
 				F25AB3BE23FD9F2400A8D1FE /* Coordinator.swift */,
 				F25AB3C023FD9F7A00A8D1FE /* MainCoordinator.swift */,
 				F2D43F0323FC7779003EC265 /* MainScreen */,
-				CB129DA023FEF0B8009D880B /* Expressions.swift */,
 				F2D43EF823FC6D6A003EC265 /* Assets.xcassets */,
 				F2D43EFA23FC6D6A003EC265 /* LaunchScreen.storyboard */,
 				F2D43EFD23FC6D6A003EC265 /* Info.plist */,
@@ -296,7 +298,7 @@
 				F25AB3CD23FDB45500A8D1FE /* GameSettingsCell.swift in Sources */,
 				F2D43EF223FC6D68003EC265 /* SceneDelegate.swift in Sources */,
 				F25AB3D723FDD00600A8D1FE /* GameScreenModel.swift in Sources */,
-				CB129DA123FEF0B8009D880B /* Expressions.swift in Sources */,
+				A446E7AA23FF12A20016E205 /* Expressions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
