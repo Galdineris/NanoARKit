@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct GameScreenModel {
+    init() {
+        return
+    }
+}

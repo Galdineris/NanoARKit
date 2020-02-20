@@ -8,7 +8,15 @@
 
 import Foundation
 
+protocol GameScreenViewModelDelegate: class {
+}
+
 class GameScreenViewModel {
-    init() {
+    private let coordinator: MainCoordinator
+    private var model: GameScreenModel
+
+    init(coordinator viewModelCoordinator: MainCoordinator) {
+        self.coordinator = viewModelCoordinator
+        self.model = GameScreenModel()
     }
 }

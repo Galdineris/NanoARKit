@@ -70,3 +70,7 @@ extension GameSettingsViewController: UITableViewDataSource {
         return cell
     }
 }
+
+extension GameScreenViewController: GameSettingsViewModelDelegate {
+    
+}
