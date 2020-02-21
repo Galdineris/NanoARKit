@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		A446E7A823FEEE710016E205 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A446E7A723FEEE710016E205 /* MainScreenViewController.swift */; };
 		A446E7AA23FF12A20016E205 /* Expressions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A446E7A923FF12A20016E205 /* Expressions.swift */; };
+		A4E418CE23FF1FAD00E65552 /* RankingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E418CD23FF1FAD00E65552 /* RankingScreenViewController.swift */; };
+		A4E418D023FF1FC100E65552 /* RankingScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E418CF23FF1FC100E65552 /* RankingScreenViewModel.swift */; };
+		A4E418D223FF1FCB00E65552 /* RankingScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E418D123FF1FCB00E65552 /* RankingScreenModel.swift */; };
 		F25AB3BF23FD9F2400A8D1FE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AB3BE23FD9F2400A8D1FE /* Coordinator.swift */; };
 		F25AB3C123FD9F7A00A8D1FE /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AB3C023FD9F7A00A8D1FE /* MainCoordinator.swift */; };
 		F25AB3C723FDA95E00A8D1FE /* GameSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AB3C623FDA95E00A8D1FE /* GameSettingsViewController.swift */; };
@@ -28,6 +31,9 @@
 /* Begin PBXFileReference section */
 		A446E7A723FEEE710016E205 /* MainScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainScreenViewController.swift; path = caretAR/MainScreenViewController.swift; sourceTree = SOURCE_ROOT; };
 		A446E7A923FF12A20016E205 /* Expressions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expressions.swift; sourceTree = "<group>"; };
+		A4E418CD23FF1FAD00E65552 /* RankingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingScreenViewController.swift; sourceTree = "<group>"; };
+		A4E418CF23FF1FC100E65552 /* RankingScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingScreenViewModel.swift; sourceTree = "<group>"; };
+		A4E418D123FF1FCB00E65552 /* RankingScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingScreenModel.swift; sourceTree = "<group>"; };
 		F25AB3BE23FD9F2400A8D1FE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		F25AB3C023FD9F7A00A8D1FE /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		F25AB3C623FDA95E00A8D1FE /* GameSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +63,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4E418C923FF1F7E00E65552 /* RankingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A4E418CC23FF1F9B00E65552 /* Model */,
+				A4E418CB23FF1F9500E65552 /* ViewModel */,
+				A4E418CA23FF1F8E00E65552 /* View */,
+			);
+			path = RankingScreen;
+			sourceTree = "<group>";
+		};
+		A4E418CA23FF1F8E00E65552 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A4E418CD23FF1FAD00E65552 /* RankingScreenViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A4E418CB23FF1F9500E65552 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A4E418CF23FF1FC100E65552 /* RankingScreenViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A4E418CC23FF1F9B00E65552 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A4E418D123FF1FCB00E65552 /* RankingScreenModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F25AB3C223FDA90700A8D1FE /* GameSettingScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +185,7 @@
 		F2D43EEE23FC6D68003EC265 /* caretAR */ = {
 			isa = PBXGroup;
 			children = (
+				A4E418C923FF1F7E00E65552 /* RankingScreen */,
 				A446E7A923FF12A20016E205 /* Expressions.swift */,
 				F25AB3CE23FDCFA000A8D1FE /* GameScreen */,
 				F25AB3C223FDA90700A8D1FE /* GameSettingScreen */,
@@ -291,12 +332,15 @@
 				F25AB3BF23FD9F2400A8D1FE /* Coordinator.swift in Sources */,
 				F25AB3C723FDA95E00A8D1FE /* GameSettingsViewController.swift in Sources */,
 				F25AB3D523FDCFF800A8D1FE /* GameScreenViewModel.swift in Sources */,
+				A4E418D223FF1FCB00E65552 /* RankingScreenModel.swift in Sources */,
 				F2D43EF023FC6D68003EC265 /* AppDelegate.swift in Sources */,
 				F25AB3C923FDA97E00A8D1FE /* GameSettingsModel.swift in Sources */,
 				A446E7A823FEEE710016E205 /* MainScreenViewController.swift in Sources */,
 				F25AB3CB23FDA99600A8D1FE /* GameSettingsViewModel.swift in Sources */,
 				F25AB3CD23FDB45500A8D1FE /* GameSettingsCell.swift in Sources */,
+				A4E418CE23FF1FAD00E65552 /* RankingScreenViewController.swift in Sources */,
 				F2D43EF223FC6D68003EC265 /* SceneDelegate.swift in Sources */,
+				A4E418D023FF1FC100E65552 /* RankingScreenViewModel.swift in Sources */,
 				F25AB3D723FDD00600A8D1FE /* GameScreenModel.swift in Sources */,
 				A446E7AA23FF12A20016E205 /* Expressions.swift in Sources */,
 			);
