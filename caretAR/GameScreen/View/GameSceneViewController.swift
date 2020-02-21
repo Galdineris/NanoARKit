@@ -11,15 +11,22 @@ import UIKit
 import ARKit
 
 class GameScreenViewController: UIViewController {
-
-    let sceneARConfiguration = ARFaceTrackingConfiguration()
-//    TODO: Create Player Object
     var players: [UUID: ARFaceAnchor] = [:]
 
     private lazy var sceneView: ARSCNView = {
         let sceneView = ARSCNView(frame: .zero)
         sceneView.translatesAutoresizingMaskIntoConstraints = false
         return sceneView
+    }()
+
+    private lazy var clueImageView: UIImageView = {
+        let view = UIImageView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    private lazy var faceNode: SCNNode = {
+        let node = SCNNode(geometry: nil)
+        return node
     }()
 
     private let viewModel: GameScreenViewModel
@@ -35,39 +42,66 @@ class GameScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSceneView()
-        sceneARConfiguration.maximumNumberOfTrackedFaces = ARFaceTrackingConfiguration.supportedNumberOfTrackedFaces
-        sceneARConfiguration.isLightEstimationEnabled = true
-        sceneView.session.run(sceneARConfiguration, options: [.removeExistingAnchors, .resetTracking])
-        sceneView.delegate = self
+        viewModel.delegate = self
         UIApplication.shared.isIdleTimerDisabled = true
+        setupSceneView()
+        setupARConfiguration()
+        setupClueImageView()
+        viewModel.startNewGame()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
         sceneView.session.pause()
         players = [:]
         UIApplication.shared.isIdleTimerDisabled = false
+        super.viewWillDisappear(animated)
     }
-//    TODO: ?create custom SCNText for player name label?
+
     private func createPlayerNameLabel(_ name: String) -> SCNText {
         let text = SCNText(string: name, extrusionDepth: 4)
         let font = UIFont.preferredFont(forTextStyle: .title1)
         let material = SCNMaterial()
         text.font = font
-        material.diffuse.contents = UIColor.yellow
+        material.diffuse.contents = [
+            UIColor.systemRed,
+            UIColor.systemYellow,
+            UIColor.systemTeal,
+            UIColor.systemBlue,
+            UIColor.systemPink,
+            UIColor.systemOrange,
+            UIColor.systemIndigo,
+            UIColor.systemPurple,
+            UIColor.systemGreen
+            ].randomElement() ?? UIColor.systemRed
         material.isDoubleSided = true
         text.materials = [material]
         return text
     }
 
     private func setupSceneView() {
+        sceneView.delegate = self
         view.addSubview(sceneView)
-
         sceneView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         sceneView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
         sceneView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         sceneView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+
+    private func setupARConfiguration() {
+        let sceneARConfiguration = ARFaceTrackingConfiguration()
+        sceneARConfiguration.maximumNumberOfTrackedFaces = ARFaceTrackingConfiguration.supportedNumberOfTrackedFaces
+        sceneARConfiguration.isLightEstimationEnabled = true
+        sceneView.session.run(sceneARConfiguration,
+                              options: [.removeExistingAnchors, .resetTracking])
+    }
+
+    private func setupClueImageView() {
+        view.addSubview(clueImageView)
+        clueImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.33).isActive = true
+        clueImageView.heightAnchor.constraint(equalTo: clueImageView.widthAnchor, multiplier: 4/3).isActive = true
+//        clueImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        clueImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        clueImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
 }
 
@@ -82,13 +116,12 @@ extension GameScreenViewController: ARSCNViewDelegate {
         if let material = faceGeometry?.firstMaterial {
             material.colorBufferWriteMask = []
         }
-        let faceNode = SCNNode(geometry: faceGeometry)
+        faceNode = SCNNode(geometry: faceGeometry)
         faceNode.renderingOrder = -1
 
         let nameNode = SCNNode(geometry: faceGeometry)
-        nameNode.position = SCNVector3(-0.2, 0.05, 0.0)
+        nameNode.position = SCNVector3(-0.1, 0.05, 0.0)
         nameNode.scale = SCNVector3(0.002, 0.002, 0.002)
-//        TODO: ?Move Player name logic creation to viewModel?
         nameNode.geometry = createPlayerNameLabel("\(players.count + 1)")
 
         let resultingNode = SCNNode(geometry: nil)
@@ -101,18 +134,25 @@ extension GameScreenViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         if let faceAnchor = (anchor as? ARFaceAnchor) {
             players.updateValue(faceAnchor, forKey: faceAnchor.identifier)
+            viewModel.newPlayer(anchorID: faceAnchor.identifier)
         }
     }
 
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         guard let faceAnchor = (anchor as? ARFaceAnchor),
-            let faceGeometry = (node.geometry as? ARSCNFaceGeometry) else {
+            let faceGeometry = (faceNode.geometry as? ARSCNFaceGeometry) else {
             return
         }
         faceGeometry.update(from: faceAnchor.geometry)
         players.updateValue(faceAnchor, forKey: faceAnchor.identifier)
+        viewModel.processNewARFrame(personFace: faceAnchor)
     }
 }
 
 extension GameScreenViewController: GameScreenViewModelDelegate {
+    func changeClueImageTo(name: String) {
+        DispatchQueue.main.async {
+            self.clueImageView.image = UIImage(named: name)
+        }
+    }
 }

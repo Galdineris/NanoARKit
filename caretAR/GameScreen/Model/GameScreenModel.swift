@@ -19,7 +19,7 @@ struct GameScreenModel {
         self.expressions = gameSettings.expressions
         self.currentExpression = Expression()
         self.playersPoints = [:]
-        self.numberOfRounds = 0
+        self.numberOfRounds = 10
         self.currentRound = 0
         self.isGameActive = false
     }

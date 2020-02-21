@@ -10,12 +10,13 @@ import Foundation
 import ARKit
 
 protocol GameScreenViewModelDelegate: class {
-//    var players: [UUID: Any] { get set }
+    func changeClueImageTo(name: String)
 }
 
 class GameScreenViewModel {
     private let coordinator: MainCoordinator
     private var model: GameScreenModel
+    weak var delegate: GameScreenViewModelDelegate?
 
     init(coordinator viewModelCoordinator: MainCoordinator, model: GameSettingsModel) {
         self.coordinator = viewModelCoordinator
@@ -23,8 +24,9 @@ class GameScreenViewModel {
     }
 
 // MARK: GAME LOGIC
-    
     public func startNewGame() {
+        changeCurrentExpression()
+        model.currentRound = 0
         model.isGameActive = true
     }
 
@@ -39,12 +41,25 @@ class GameScreenViewModel {
                 }
             }
         }
-        guard let score = model.playersPoints[personFace.identifier] else {
-            return
-        }
-        model.playersPoints.updateValue(score + 1, forKey: personFace.identifier)
+        expressionMatchedBy(playerID: personFace.identifier)
+    }
+
+    public func newPlayer(anchorID: UUID) {
+        model.playersPoints.updateValue(0, forKey: anchorID)
+    }
+
+    public func changeCurrentExpression() {
         if let randomElement = model.expressions.randomElement() {
             model.currentExpression = randomElement
         }
+        delegate?.changeClueImageTo(name: model.currentExpression.name)
+    }
+
+    public func expressionMatchedBy(playerID: UUID) {
+        guard let score = model.playersPoints[playerID] else {
+            return
+        }
+        model.playersPoints.updateValue(score + 1, forKey: playerID)
+        changeCurrentExpression()
     }
 }
