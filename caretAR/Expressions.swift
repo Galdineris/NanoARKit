@@ -15,7 +15,11 @@ struct Expression {
     var enabled: Bool
     var details: String
     var blendShapes: [ARFaceAnchor.BlendShapeLocation]
-    init(_ name: String, threshold: Float, enabled: Bool, details: String, blendShapes: [ARFaceAnchor.BlendShapeLocation]) {
+    init(_ name: String,
+         threshold: Float,
+         enabled: Bool,
+         details: String,
+         blendShapes: [ARFaceAnchor.BlendShapeLocation]) {
         self.name = name
         self.threshold = threshold
         self.enabled = enabled
@@ -41,12 +45,16 @@ let defaultExpressions: [Expression] = [
                     threshold: Float(0.5),
                     enabled: true,
                     details: "Sorrir",
-                    blendShapes: [ARFaceAnchor.BlendShapeLocation.mouthSmileRight, ARFaceAnchor.BlendShapeLocation.mouthSmileLeft]),
+                    blendShapes: [
+                        ARFaceAnchor.BlendShapeLocation.mouthSmileRight,
+                        ARFaceAnchor.BlendShapeLocation.mouthSmileLeft]),
     Expression.init("eyeUp",
                     threshold: Float(0.6),
                     enabled: true ,
                     details: "Olhar para cima",
-                    blendShapes: [ARFaceAnchor.BlendShapeLocation.eyeLookUpLeft, ARFaceAnchor.BlendShapeLocation.eyeLookUpRight]),
+                    blendShapes: [
+                        ARFaceAnchor.BlendShapeLocation.eyeLookUpLeft,
+                        ARFaceAnchor.BlendShapeLocation.eyeLookUpRight]),
     Expression.init("browUp",
                     threshold: Float(0.7),
                     enabled: true,
@@ -70,7 +78,7 @@ let defaultExpressions: [Expression] = [
     Expression.init("lookLeft",
                     threshold: Float(0.9),
                     enabled: true,
-                    details:"Olhar para a esquerda",
+                    details: "Olhar para a esquerda",
                     blendShapes: [ARFaceAnchor.BlendShapeLocation.eyeLookOutLeft]),
     Expression.init("lookRight",
                     threshold: Float(0.9),

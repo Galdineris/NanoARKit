@@ -68,7 +68,7 @@ class GameScreenViewModel {
         }
     }
 
-    private func gameEnd(){
+    private func gameEnd() {
         let rank: [String] = getCurrentScore()
         coordinator.showRanking(ranking: rank)
     }

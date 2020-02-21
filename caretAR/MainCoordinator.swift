@@ -18,25 +18,25 @@ final class MainCoordinator: Coordinator {
 
     public func start() {
         let viewModel = MainScreenViewModel(Coordinator: self)
-        let vc = MainScreenViewController(viewModel: viewModel)
-        navigationController.pushViewController(vc, animated: true)
+        let viewControlller = MainScreenViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewControlller, animated: true)
     }
 
     public func gameSettings() {
         let viewModel = GameSettingsViewModel(coordinator: self)
-        let vc = GameSettingsViewController(viewModel: viewModel)
-        navigationController.pushViewController(vc, animated: true)
+        let viewController = GameSettingsViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
     }
 
     public func playGame(model: GameSettingsModel) {
         let viewModel = GameScreenViewModel(coordinator: self, model: model)
-        let vc = GameScreenViewController(viewModel: viewModel)
-        navigationController.pushViewController(vc, animated: true)
+        let viewController = GameScreenViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
     }
 
     public func showRanking(ranking: [String]) {
         let viewModel = RankingScreenViewModel(coordinator: self, ranking: ranking)
-        let vc = RankingScreenViewController(viewModel: viewModel)
-        navigationController.pushViewController(vc, animated: true)
+        let viewController = RankingScreenViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
     }
 }

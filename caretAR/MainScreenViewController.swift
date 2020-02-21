@@ -75,7 +75,8 @@ class MainScreenViewController: UIViewController {
         playButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         playButton.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
         playButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        playButton.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.5).isActive = true
+        playButton.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor,
+                                          multiplier: 0.5).isActive = true
     }
 
     @objc public func play() {
