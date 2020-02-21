@@ -97,11 +97,13 @@ class GameScreenViewController: UIViewController {
 
     private func setupClueImageView() {
         view.addSubview(clueImageView)
-        clueImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.33).isActive = true
-        clueImageView.heightAnchor.constraint(equalTo: clueImageView.widthAnchor, multiplier: 4/3).isActive = true
-//        clueImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        clueImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        clueImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        clueImageView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor,
+                                           constant: 5).isActive = true
+        clueImageView.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        clueImageView.widthAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.widthAnchor,
+                                             multiplier: 0.2).isActive = true
+        clueImageView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor,
+                                              multiplier: 0.2).isActive = true
     }
 }
 

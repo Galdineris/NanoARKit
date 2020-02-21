@@ -48,18 +48,36 @@ class GameScreenViewModel {
         model.playersPoints.updateValue(0, forKey: anchorID)
     }
 
-    public func changeCurrentExpression() {
+    private func changeCurrentExpression() {
         if let randomElement = model.expressions.randomElement() {
             model.currentExpression = randomElement
         }
         delegate?.changeClueImageTo(name: model.currentExpression.name)
+        model.currentRound += 1
     }
 
-    public func expressionMatchedBy(playerID: UUID) {
+    private func expressionMatchedBy(playerID: UUID) {
         guard let score = model.playersPoints[playerID] else {
             return
         }
         model.playersPoints.updateValue(score + 1, forKey: playerID)
-        changeCurrentExpression()
+        if model.currentRound >= model.numberOfRounds {
+            gameEnd()
+        } else {
+            changeCurrentExpression()
+        }
+    }
+
+    private func gameEnd(){
+        let rank: [String] = getCurrentScore()
+        coordinator.showRanking(ranking: rank)
+    }
+
+    private func getCurrentScore() -> [String] {
+        let rank: [String] = []
+        for player in model.playersPoints {
+            
+        }
+        return  rank
     }
 }

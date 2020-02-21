@@ -66,7 +66,7 @@ let defaultExpressions: [Expression] = [
                     threshold: Float(0.7),
                     enabled: true,
                     details: "Abrir a boca",
-                    blendShapes: [ARFaceAnchor.BlendShapeLocation.mouthClose]),
+                    blendShapes: [ARFaceAnchor.BlendShapeLocation.jawOpen]),
     Expression.init("lookLeft",
                     threshold: Float(0.9),
                     enabled: true,
