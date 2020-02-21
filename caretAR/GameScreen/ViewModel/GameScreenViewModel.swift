@@ -74,10 +74,7 @@ class GameScreenViewModel {
     }
 
     private func getCurrentScore() -> [String] {
-        let rank: [String] = []
-        for player in model.playersPoints {
-            
-        }
+        let rank: [String] = ["1", "2", "3"]
         return  rank
     }
 }
