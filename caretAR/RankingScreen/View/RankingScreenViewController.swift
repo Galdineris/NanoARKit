@@ -21,18 +21,31 @@ final class RankingScreenViewController: UIViewController {
     private lazy var firstPlaceLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: "Futura", size: 24)
+        label.textColor = .systemGray6
+        return label
+    }()
+
+    private lazy var rankingLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: "Futura", size: 24)
         return label
     }()
 
     private lazy var secondPlaceLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: "Futura", size: 24)
+        label.textColor = .systemGray6
         return label
     }()
 
     private lazy var thirdPlaceLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: "Futura", size: 24)
+        label.textColor = .systemGray6
         return label
     }()
 
@@ -47,11 +60,13 @@ final class RankingScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemRed
         setupStack()
         setupRanking()
     }
 
     private func setupStack() {
+        rankingStack.addArrangedSubview(rankingLabel)
         rankingStack.addArrangedSubview(firstPlaceLabel)
         rankingStack.addArrangedSubview(secondPlaceLabel)
         rankingStack.addArrangedSubview(thirdPlaceLabel)
@@ -69,6 +84,7 @@ final class RankingScreenViewController: UIViewController {
     }
 
     private func setupRanking() {
+        rankingLabel.text = "RANKING"
         firstPlaceLabel.text = viewModel.firstPlace()
         secondPlaceLabel.text = viewModel.secondPlace()
         thirdPlaceLabel.text = viewModel.thirdPlace()
