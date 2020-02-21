@@ -33,4 +33,10 @@ final class MainCoordinator: Coordinator {
         let vc = GameScreenViewController(viewModel: viewModel)
         navigationController.pushViewController(vc, animated: true)
     }
+
+    public func showRanking(ranking: [String]) {
+        let viewModel = RankingScreenViewModel(coordinator: self, ranking: ranking)
+        let vc = RankingScreenViewController(viewModel: viewModel)
+        navigationController.pushViewController(vc, animated: true)
+    }
 }
